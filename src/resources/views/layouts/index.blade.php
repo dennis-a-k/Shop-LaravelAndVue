@@ -137,7 +137,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <span class="brand-text font-weight-light">Shop</span>
+                <span class="brand-text font-weight-light">Магазин</span>
             </a>
 
             <!-- Sidebar -->
@@ -163,7 +163,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="{{ route('category.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-list"></i>
                                 <p>
                                     Категории
@@ -171,7 +171,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="{{ route('tag.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tags"></i>
                                 <p>
                                     Теги
@@ -179,7 +179,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="{{ route('color.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-palette"></i>
                                 <p>
                                     Цвета
@@ -208,11 +208,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Главная</h1>
+                            <h1 class="m-0">
+                                @yield('content-title')
+                            </h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item active">Главная</li>
+                                @yield('content-breadcrumbs')
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -221,12 +223,17 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-            @yield('content')
+            <section class="content">
+                <div class="container-fluid">
+                    @yield('content')
+                </div><!-- /.container-fluid -->
+            </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
         <footer class="main-footer">
-            <strong><a href="{{ route('main.home') }}">Shop</a> &copy; 2014-{{ now()->year }}</strong>
+            <strong><a href="{{ route('main.index') }}">Магазин</a> &copy; 2014-{{ now()->year }}</strong>
         </footer>
 
         <!-- Control Sidebar -->
