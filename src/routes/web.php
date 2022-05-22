@@ -45,6 +45,19 @@ Route::group([
     Route::delete('/{color}', \App\Http\Controllers\Color\DeleteController::class)->name('delete');
 });
 
+Route::group([
+    'prefix'    => 'users',
+    'as'        => 'user.',
+], function() {
+    Route::get('/', \App\Http\Controllers\User\IndexController::class)->name('index');
+    Route::get('/create', \App\Http\Controllers\User\CreateController::class)->name('create');
+    Route::post('/', \App\Http\Controllers\User\StoreController::class)->name('store');
+    Route::get('/{user}/edit', \App\Http\Controllers\User\EditController::class)->name('edit');
+    Route::get('/{user}', \App\Http\Controllers\User\ShowController::class)->name('show');
+    Route::patch('/{user}', \App\Http\Controllers\User\UpdateController::class)->name('update');
+    Route::delete('/{user}', \App\Http\Controllers\User\DeleteController::class)->name('delete');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

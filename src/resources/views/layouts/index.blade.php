@@ -187,7 +187,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="{{ route('user.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Пользователи
@@ -233,7 +233,7 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <strong><a href="{{ route('main.index') }}">Магазин</a> &copy; 2014-{{ now()->year }}</strong>
+            <strong><a href="{{ route('main.index') }}">Админка</a> &copy; 2014-{{ now()->year }}</strong>
         </footer>
 
         <!-- Control Sidebar -->

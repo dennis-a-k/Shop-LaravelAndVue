@@ -16,7 +16,7 @@
 
 @section('content')
     <!-- Main row -->
-    <div class="row ">
+    <div class="row">
         <form action="{{ route('category.store') }}" class="col-12" method="POST">
             @csrf
             <div class="form-group">
