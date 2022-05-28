@@ -12,10 +12,13 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -136,8 +139,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <span class="brand-text font-weight-light">Магазин</span>
+            <a href="{{ route('main.index') }}" class="brand-link">
+                <span class="brand-text font-weight-light">Админка</span>
             </a>
 
             <!-- Sidebar -->
@@ -155,7 +158,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="{{ route('product.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tshirt"></i>
                                 <p>
                                     Товары
@@ -254,10 +257,15 @@
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Select2 -->
+    <script src="{{ asset('admin/plugins/select2/js/select2.full.min.js') }}"></script>
+    <!-- bs-custom-file-input -->
+    <script src="{{ asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <!-- overlayScrollbars -->
     <script src="{{ asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin/dist/js/adminlte.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
