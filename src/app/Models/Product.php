@@ -27,4 +27,9 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function getImgUrlAttribute()
+    {
+        return url('storage/' . $this->preview_img);
+    }
 }
