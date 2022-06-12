@@ -71,6 +71,19 @@ Route::group([
     Route::delete('/{product}', \App\Http\Controllers\Product\DeleteController::class)->name('delete');
 });
 
+Route::group([
+    'prefix'    => 'groups',
+    'as'        => 'group.',
+], function() {
+    Route::get('/', \App\Http\Controllers\Group\IndexController::class)->name('index');
+    Route::get('/create', \App\Http\Controllers\Group\CreateController::class)->name('create');
+    Route::post('/', \App\Http\Controllers\Group\StoreController::class)->name('store');
+    Route::get('/{group}/edit', \App\Http\Controllers\Group\EditController::class)->name('edit');
+    Route::get('/{group}', \App\Http\Controllers\Group\ShowController::class)->name('show');
+    Route::patch('/{group}', \App\Http\Controllers\Group\UpdateController::class)->name('update');
+    Route::delete('/{group}', \App\Http\Controllers\Group\DeleteController::class)->name('delete');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
