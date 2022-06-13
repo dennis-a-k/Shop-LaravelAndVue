@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('is_published')->default(true);
 
             $table->foreignId('category_id')->nullable()->index()->constrained('categories');
+            $table->foreignId('color_id')->nullable()->index()->constrained('colors');
 
             $table->softDeletes();
             $table->timestamps();

@@ -54,6 +54,30 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="color_id">Цвет</label>
+                <select class="form-control select2" id="color_id" style="width: 100%;" name="color_id">
+                    <option disabled>Выберите цвет</option>
+                    @foreach ($colors as $color)
+                        <option value="{{ $color->id }}"
+                            {{ $color->id == $product->color_id || old('color_id') == $product->color_id ? ' selected' : '' }}>
+                            {{ $color->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="category_id">Группа товаров</label>
+                <select class="form-control select2" id="group_id" style="width: 100%;" name="group_id">
+                    <option disabled>Выберите категорию</option>
+                    @foreach ($groups as $group)
+                        <option value="{{ $group->id }}"
+                            {{ $group->id == $product->group_id || old('group_id') == $product->group_id ? ' selected' : '' }}>
+                            {{ $group->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="tags">Выбранные тэги:</label>
                 <select class="tags" id="tags" name="tags[]" multiple="multiple" data-placeholder="Выберите тэг"
                     style="width: 100%;">
@@ -65,22 +89,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="colors">Выбранные цвета:</label>
-                <select class="colors" name="colors[]" id="colors" multiple="multiple"
-                    data-placeholder="Выберите цвет" style="width: 100%;">
-                    @foreach ($colors as $color)
-                        <option
-                            {{ is_array($product->colors->pluck('id')->toArray()) && in_array($color->id, $product->colors->pluck('id')->toArray()) ? ' selected' : '' }}
-                            value="{{ $color->id }}">{{ $color->title }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
                 <label for="exampleInputFile">Изображение</label>
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="preview_img"
-                            value="{{ old('preview_img') }}" accept="image/png,image/jpg,image/jpeg">
+                            value="{{ $product->preview_img }} ?? old('preview_img')"
+                            accept="image/png,image/jpg,image/jpeg">
                         <label class="custom-file-label" for="exampleInputFile">Выберите изображение</label>
                     </div>
                 </div>
@@ -92,8 +106,7 @@
             </div>
             <div class="form-group">
                 <label for="content">Контент</label>
-                <textarea class="form-control" id="content" name="content" placeholder="Контент" cols="30"
-                    rows="10">{{ $product->content ?? old('content') }}</textarea>
+                <textarea class="form-control" id="content" name="content" placeholder="Контент" cols="30" rows="10">{{ $product->content ?? old('content') }}</textarea>
             </div>
             <div class="form-group">
                 <div class="custom-control custom-radio">

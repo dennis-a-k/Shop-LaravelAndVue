@@ -33,10 +33,10 @@ class Request extends FormRequest
             'count'         => 'required|integer',
             'is_published'  => 'required|boolean',
             'category_id'   => 'required|integer|exists:categories,id',
+            'color_id'      => 'required|integer|exists:colors,id',
+            'group_id'      => 'required|integer|exists:groups,id',
             'tags'          => 'nullable|array',
             'tags.*'        => 'nullable|integer|exists:tags,id',
-            'colors'        => 'nullable|array',
-            'colors.*'      => 'nullable|integer|exists:colors,id',
         ];
     }
 }

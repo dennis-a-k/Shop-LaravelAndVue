@@ -14,12 +14,11 @@ class UpdateController extends Controller
         try {
             $data = $request->validated();
 
-            isset($data['preview_img']) ? $data['preview_img'] = Storage::disk('public')->put('/img', $data['preview_img']) : $data['preview_img'] = 'img/default.png';
+            if (isset($data['preview_img'])) $data['preview_img'] = Storage::disk('public')->put('/img', $data['preview_img']);
 
             $tagsId = $data['tags'];
-            $colorsId = $data['colors'];
 
-            unset($data['tags'], $data['colors']);
+            unset($data['tags']);
 
             $product = Product::firstOrCreate([
                 'article' => $data['article'],
@@ -28,7 +27,6 @@ class UpdateController extends Controller
             $product->update($data);
 
             $product->tags()->sync($tagsId);
-            $product->colors()->sync($colorsId);
         } catch (\Exception $exception) {
             abort(404);
         }

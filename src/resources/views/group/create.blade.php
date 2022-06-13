@@ -16,6 +16,8 @@
 
 @section('content')
     <!-- Main row -->
+    <p>(для объединения схожих товаров но с разными значениями. К примеру одна модель телефона но с разной
+        расцветкой)</p>
     <div class="row">
         <form action="{{ route('group.store') }}" class="col-12" method="POST">
             @csrf

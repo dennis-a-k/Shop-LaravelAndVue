@@ -17,16 +17,17 @@ class StoreController extends Controller
             isset($data['preview_img']) ? $data['preview_img'] = Storage::disk('public')->put('/img', $data['preview_img']) : $data['preview_img'] = 'img/default.png';
 
             $tagsId = $data['tags'];
-            $colorsId = $data['colors'];
+            // $colorsId = $data['colors'];
 
-            unset($data['tags'], $data['colors']);
+            unset($data['tags']);
+            // unset($data['tags'], $data['colors']);
 
             $product = Product::firstOrCreate([
                 'article' => $data['article'],
             ], $data);
 
             $product->tags()->attach($tagsId);
-            $product->colors()->attach($colorsId);
+            // $product->colors()->attach($colorsId);
         } catch (\Exception $exception) {
             abort(404);
         }

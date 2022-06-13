@@ -86,9 +86,13 @@
                             <tr>
                                 <td style="width: 25%">Цвет:</td>
                                 <td>
-                                    @foreach ($product->colors as $color)
-                                        {{ $color->title }},
-                                    @endforeach
+                                    {{ $product->color['title'] }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%">Группа товаров:</td>
+                                <td>
+                                    {{ $product->group['title'] }}
                                 </td>
                             </tr>
                             <tr>

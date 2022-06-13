@@ -18,9 +18,14 @@ class Product extends Model
         return $this->belongsToMany(Tag::class, 'product_tags', 'product_id', 'tag_id');
     }
 
-    public function colors()
+    public function color()
     {
-        return $this->belongsToMany(Color::class, 'color_products', 'product_id', 'color_id');
+        return $this->belongsTo(Color::class, 'color_id');
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class, 'group_id');
     }
 
     public function category()

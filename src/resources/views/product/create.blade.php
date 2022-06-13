@@ -20,12 +20,12 @@
         <form action="{{ route('product.store') }}" class="col-12" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="title">Наименование</label>
+                <label for="title">Наименование*</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}"
                     placeholder="Наименование">
             </div>
             <div class="form-group">
-                <label for="article">Артикул</label>
+                <label for="article">Артикул*</label>
                 <input type="text" class="form-control" id="article" name="article" value="{{ old('article') }}"
                     placeholder="Артикул товара">
             </div>
@@ -40,7 +40,7 @@
                     cols="30" rows="10"></textarea>
             </div>
             <div class="form-group">
-                <label for="price">Цена</label>
+                <label for="price">Цена*</label>
                 <input type="text" class="form-control" id="price" name="price" value="{{ old('price') }}"
                     placeholder="Цена">
             </div>
@@ -56,7 +56,30 @@
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}"
                             {{ $category->id == old('category_id') ? ' selected' : '' }}>
-                            {{ $category->title }}</option>
+                            {{ $category->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="color_id">Цвет</label>
+                <select class="form-control select2" id="color_id" style="width: 100%;" name="color_id">
+                    <option selected disabled>Выберите цвет</option>
+                    @foreach ($colors as $color)
+                        <option value="{{ $color->id }}" {{ $color->id == old('color_id') ? ' selected' : '' }}>
+                            {{ $color->title }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="group_id">Группа товаров</label>
+                <select class="form-control select2" id="group_id" style="width: 100%;" name="group_id">
+                    <option selected disabled>Выберите цвет</option>
+                    @foreach ($groups as $group)
+                        <option value="{{ $group->id }}" {{ $group->id == old('group_id') ? ' selected' : '' }}>
+                            {{ $group->title }}
+                        </option>
                     @endforeach
                 </select>
             </div>
@@ -71,7 +94,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="colors">Цвет</label>
                 <select class="colors" id="colors" name="colors[]" multiple="multiple"
                     data-placeholder="Выберите цвет" style="width: 100%;">
@@ -80,13 +103,13 @@
                             value="{{ $color->id }}">{{ $color->title }}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label for="exampleInputFile">Изображение</label>
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="preview_img"
-                            value="{{ old('preview_img') }}">
+                            value="{{ old('preview_img') }}" accept=".png, .jpg, .jpeg">
                         <label class="custom-file-label" for="exampleInputFile">Выберите изображение</label>
                     </div>
                 </div>
