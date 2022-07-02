@@ -37,6 +37,7 @@ class Request extends FormRequest
             'group_id'      => 'required|integer|exists:groups,id',
             'tags'          => 'nullable|array',
             'tags.*'        => 'nullable|integer|exists:tags,id',
+            'product_imgs'  => 'nullable|array',
         ];
     }
 }

@@ -105,7 +105,7 @@
                 </select>
             </div> --}}
             <div class="form-group">
-                <label for="exampleInputFile">Изображение</label>
+                <label for="exampleInputFile">Изображение 1</label>
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="preview_img"
@@ -115,13 +115,34 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="exampleInputFile">Изображение 2</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="product_imgs[]"
+                            value="{{ old('preview_img') }}" accept=".png, .jpg, .jpeg">
+                        <label class="custom-file-label" for="exampleInputFile">Выберите изображение</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">Изображение 3</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="product_imgs[]"
+                            value="{{ old('preview_img') }}" accept=".png, .jpg, .jpeg">
+                        <label class="custom-file-label" for="exampleInputFile">Выберите изображение</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" id="customRadio1" value="1" name="is_published">
+                    <input class="custom-control-input" type="radio" id="customRadio1" value="1"
+                        name="is_published">
                     <label for="customRadio1" class="custom-control-label">Опубликовать товар</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio" id="customRadio2" value="0" name="is_published"
-                        checked>
+                    <input class="custom-control-input" type="radio" id="customRadio2" value="0"
+                        name="is_published" checked>
                     <label for="customRadio2" class="custom-control-label">Скрыть товар</label>
                 </div>
             </div>
